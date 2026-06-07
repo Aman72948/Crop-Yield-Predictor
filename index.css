@@ -1,0 +1,118 @@
+:root {
+  /* Blue Theme Colors */
+  --text: #2335d2;              /* Muted Dark Grey for easy reading */
+  --text-h: #0d1b2a;            /* Deep Midnight Blue for Headings */
+  --bg: #f4f7fc;                /* Very Light Blue-Grey Background for the screen */
+  --border: #d0dbec;            /* Soft Blueish Border */
+  --code-bg: #e8f0fe;           /* Light Sky Blue for highlight boxes */
+  --accent: #1565c0;            /* Primary Royal Blue for Main Buttons & Actions */
+  --accent-bg: rgba(21, 101, 192, 0.08);    /* Extremely Soft Blue Tint */
+  --accent-border: rgba(21, 101, 192, 0.4); /* Semitransparent Blue Border */
+  --social-bg: rgba(232, 240, 254, 0.6);
+  --shadow:
+    rgba(13, 27, 42, 0.08) 0 10px 15px -3px, rgba(13, 27, 42, 0.04) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* FIXED: Changed overflow:hidden to allow clean browser mouse-wheel scrolling */
+html, body, #root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;  /* Prevents horizontal layout breaking */
+  overflow-y: auto;    /* Enables natural mouse wheel and gesture scrolling */
+  min-height: 100vh;
+}
+
+/* Automatic Dark Mode Support using Deep Slate-Blue colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #94a3b8;            /* Slate text */
+    --text-h: #f1f5f9;          /* Near White text */
+    --bg: #0f172a;              /* Rich Dark Slate-Blue background */
+    --border: #1e293b;          /* Darker border */
+    --code-bg: #1e293b;         /* Dark container backgrounds */
+    --accent: #60a5fa;          /* Vibrant Electric Light Blue for dark mode */
+    --accent-bg: rgba(96, 165, 250, 0.15);
+    --accent-border: rgba(96, 165, 250, 0.5);
+    --social-bg: rgba(30, 41, 59, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.5) 0 10px 15px -3px, rgba(0, 0, 0, 0.3) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+/* CRITICAL FIX: HTML/Body backgrounds reset taaki inline image dikhe */
+html {
+  background: none !important;
+}
+
+body {
+  margin: 0;
+  background: transparent !important;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
